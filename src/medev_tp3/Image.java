@@ -12,6 +12,7 @@ import java.util.ArrayList;
  * @author Pierre
  */
 public class Image {
+
     private int hauteur;
     private int largeur;
     private ArrayList<ArrayList<Integer>> pixels;
@@ -43,7 +44,14 @@ public class Image {
     public Image(int hauteur, int largeur) {
         this.hauteur = hauteur;
         this.largeur = largeur;
-        this.pixels=new ArrayList<ArrayList<Integer>>(); 
+        this.pixels = new ArrayList<ArrayList<Integer>>();
+    
+    
+
+    public Image() {
+        this.hauteur = 0;
+        this.largeur = 0;
+        this.pixels = new ArrayList<ArrayList<Integer>>();
     }
     
     public Image histogramme(){

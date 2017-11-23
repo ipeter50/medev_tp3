@@ -47,12 +47,6 @@ public class Image {
         this.pixels = new ArrayList<ArrayList<Integer>>();
     
     
-
-    public Image() {
-        this.hauteur = 0;
-        this.largeur = 0;
-        this.pixels = new ArrayList<ArrayList<Integer>>();
-    }
     
     public Image histogramme(){
         ArrayList<Integer> niveaux = new ArrayList<Integer>();

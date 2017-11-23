@@ -32,9 +32,9 @@ public class Ecriture {
             writer.newLine();
             writer.write("#");
             writer.newLine();
-            writer.write("255");
-            writer.newLine();
             writer.write(Integer.toString(img.getLargeur())+" "+ Integer.toString(img.getHauteur()));
+            writer.newLine();
+            writer.write("255");
             writer.newLine();
             for (int i=0;i<img.getHauteur();i++){
                 for(int j=0;j<img.getLargeur();j++){

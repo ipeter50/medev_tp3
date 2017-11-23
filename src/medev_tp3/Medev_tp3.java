@@ -5,6 +5,9 @@
  */
 package medev_tp3;
 
+import static medev_tp3.Ecriture.EcriturePGM;
+import static medev_tp3.Lecture.LecturePGM;
+
 /**
  *
  * @author Pierre
@@ -16,8 +19,9 @@ public class Medev_tp3 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        System.out.println("what's up ?");
-        System.out.println("hello bitch");
+        Image img= LecturePGM("C:\\Users\\Pierre\\Desktop\\lena.pgm");
+        img.seuillage(100);
+        EcriturePGM("C:\\Users\\Pierre\\Desktop\\lena2.pgm",img);
     }
     
 }

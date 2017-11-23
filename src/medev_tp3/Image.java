@@ -59,7 +59,7 @@ public class Image {
                 niveaux.set(this.pixels.get(i).get(j), niveaux.get(this.pixels.get(i).get(j)) + 1);
             }
         }
-        Image hist = new Image(this.max(niveaux), 256);
+        Image hist = new Image(this.max(niveaux), 256*5);
 
         for (int i = 0; i < hist.hauteur; i++) {
             hist.pixels.add(new ArrayList<Integer>());
@@ -71,7 +71,11 @@ public class Image {
         }
         for (int i = 0; i < niveaux.size(); i++) {
             for (int j = 0; j < niveaux.get(i); j++) {
-                hist.pixels.get(hist.hauteur - j - 1).set(i, 0);
+                hist.pixels.get(hist.hauteur - j - 1).set(5*i, 0);
+                hist.pixels.get(hist.hauteur - j - 1).set(5*i+1, 0);
+                hist.pixels.get(hist.hauteur - j - 1).set(5*i+2, 0);
+                hist.pixels.get(hist.hauteur - j - 1).set(5*i+3, 0);
+                hist.pixels.get(hist.hauteur - j - 1).set(5*i+4, 0);
             }
 
         }

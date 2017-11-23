@@ -16,28 +16,27 @@ import java.util.logging.Logger;
  * @author Pierre
  */
 public class Ecriture {
-    
 
-    public static void EcriturePGM(String path,Image img) {
+    public static void EcriturePGM(String path, Image img) {
         BufferedWriter writer = null;
- 
+
         try {
             writer = new BufferedWriter(new FileWriter(path));
         } catch (IOException ex) {
             Logger.getLogger(Ecriture.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         try {
             writer.write("P2");
             writer.newLine();
             writer.write("#");
             writer.newLine();
-            writer.write(Integer.toString(img.getLargeur())+" "+ Integer.toString(img.getHauteur()));
+            writer.write(Integer.toString(img.getLargeur()) + " " + Integer.toString(img.getHauteur()));
             writer.newLine();
             writer.write("255");
             writer.newLine();
-            for (int i=0;i<img.getHauteur();i++){
-                for(int j=0;j<img.getLargeur();j++){
+            for (int i = 0; i < img.getHauteur(); i++) {
+                for (int j = 0; j < img.getLargeur(); j++) {
                     writer.write(Integer.toString(img.getPixels().get(i).get(j)));
                     writer.write("\t");
                 }
@@ -55,10 +54,7 @@ public class Ecriture {
                 Logger.getLogger(Ecriture.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        
-        
+
     }
-    
-    
-    
+
 }

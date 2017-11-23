@@ -45,83 +45,80 @@ public class Image {
         this.hauteur = hauteur;
         this.largeur = largeur;
         this.pixels = new ArrayList<ArrayList<Integer>>();
-    
+
     }
-    
-    public Image histogramme(){
+
+    public Image histogramme() {
         ArrayList<Integer> niveaux = new ArrayList<Integer>();
-        for (int i=0; i<256;i++){
+        for (int i = 0; i < 256; i++) {
             niveaux.add(0);
         }
-        
-        for (int i=0;i<this.hauteur;i++){
-            for (int j=0;j<this.largeur;j++){
-                niveaux.set(this.pixels.get(i).get(j),niveaux.get(this.pixels.get(i).get(j))+1);
+
+        for (int i = 0; i < this.hauteur; i++) {
+            for (int j = 0; j < this.largeur; j++) {
+                niveaux.set(this.pixels.get(i).get(j), niveaux.get(this.pixels.get(i).get(j)) + 1);
             }
         }
-        Image hist=new Image(this.max(niveaux),256);
-        
-        for(int i=0;i<hist.hauteur;i++){
-            for(int j=0;j<hist.largeur;j++){
-                hist.pixels.get(j).set(i,255);
+        Image hist = new Image(this.max(niveaux), 256);
+
+        for (int i = 0; i < hist.hauteur; i++) {
+            hist.pixels.add(new ArrayList<Integer>());
+            for (int j = 0; j < hist.largeur; j++) {
+
+                hist.pixels.get(i).add(255);
             }
-            
+
         }
-        for(int i=0;i<niveaux.size();i++){
-            for(int j=0;j<niveaux.get(i);j++){
-                hist.pixels.get(j).set(i,0);
+        for (int i = 0; i < niveaux.size(); i++) {
+            for (int j = 0; j < niveaux.get(i); j++) {
+                hist.pixels.get(hist.hauteur - j - 1).set(i, 0);
             }
-            
+
         }
         return hist;
     }
-    
-    public int max(ArrayList<Integer> niveaux){
-        int max=0;
-        for (int i=0;i<niveaux.size();i++){
-            if(niveaux.get(i)>max){
-                max=niveaux.get(i);
+
+    public int max(ArrayList<Integer> niveaux) {
+        int max = 0;
+        for (int i = 0; i < niveaux.size(); i++) {
+            if (niveaux.get(i) > max) {
+                max = niveaux.get(i);
             }
         }
         return max;
     }
-    
-    public void seuillage(int seuil){
-        for(int i=0;i<this.hauteur;i++){
-            for(int j=0;j<this.largeur;j++){
-                if(this.pixels.get(i).get(j)>=seuil){
-                    this.pixels.get(j).set(i,255);
+
+    public void seuillage(int seuil) {
+        for (int i = 0; i < this.hauteur; i++) {
+            for (int j = 0; j < this.largeur; j++) {
+                if (this.pixels.get(i).get(j) >= seuil) {
+                    this.pixels.get(i).set(j, 255);
+                } else {
+                    this.pixels.get(i).set(j, 0);
                 }
-                else{
-                    this.pixels.get(j).set(i,0);
-                }
-                
+
             }
-            
+
         }
-        
+
     }
-    
-    
-    public boolean difference (Image img){
-        boolean res=true;
-        if (this.hauteur!=img.hauteur){
-            res=false;            
-        }
-        else if(this.largeur != img.largeur){
-            res=false;
-        }
-        else{
-            for(int i=0;i<this.hauteur;i++){
-                for(int j=0;j<this.largeur;j++){
-                    if(this.pixels.get(i).get(j)!=img.pixels.get(i).get(j)){
-                        res=false;
+
+    public boolean difference(Image img) {
+        boolean res = true;
+        if (this.hauteur != img.hauteur) {
+            res = false;
+        } else if (this.largeur != img.largeur) {
+            res = false;
+        } else {
+            for (int i = 0; i < this.hauteur; i++) {
+                for (int j = 0; j < this.largeur; j++) {
+                    if (this.pixels.get(i).get(j) != img.pixels.get(i).get(j)) {
+                        res = false;
                     }
                 }
             }
         }
         return res;
     }
-    
-    
+
 }

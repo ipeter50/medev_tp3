@@ -16,7 +16,7 @@ import java.util.StringTokenizer;
 public class Lecture {
 
     public static Image LecturePGM(String source) {
-        Image img = new Image(0,0);
+        Image img = new Image(0, 0);
         try {
             String line;
             BufferedReader fichier = new BufferedReader(new FileReader(source));

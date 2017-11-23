@@ -103,5 +103,25 @@ public class Image {
     }
     
     
+    public boolean difference (Image img){
+        boolean res=true;
+        if (this.hauteur!=img.hauteur){
+            res=false;            
+        }
+        else if(this.largeur != img.largeur){
+            res=false;
+        }
+        else{
+            for(int i=0;i<this.hauteur;i++){
+                for(int j=0;j<this.largeur;j++){
+                    if(this.pixels.get(i).get(j)!=img.pixels.get(i).get(j)){
+                        res=false;
+                    }
+                }
+            }
+        }
+        return res;
+    }
+    
     
 }

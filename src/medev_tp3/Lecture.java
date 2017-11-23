@@ -33,7 +33,6 @@ public class Lecture {
                 while (line != null) {
                     img.getPixels().add(new ArrayList<Integer>());
                     t = new StringTokenizer(line, "\t");
-                    System.out.println(i);
                     while (t.hasMoreTokens()) {
                         String pixel = t.nextToken();
                         img.getPixels().get(i).add(Integer.parseInt(pixel));

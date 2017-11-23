@@ -19,9 +19,9 @@ public class Medev_tp3 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Image img= LecturePGM("C:\\Users\\Pierre\\Desktop\\lena.pgm");
-        img.seuillage(100);
-        EcriturePGM("C:\\Users\\Pierre\\Desktop\\lena2.pgm",img);
+        Image img = LecturePGM("C:\\Users\\Pierre\\Desktop\\lena.pgm");
+        //img.seuillage(100);
+        EcriturePGM("C:\\Users\\Pierre\\Desktop\\lena2.pgm", img.histogramme());
     }
-    
+
 }

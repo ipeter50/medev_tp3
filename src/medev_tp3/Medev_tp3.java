@@ -16,6 +16,7 @@ public class Medev_tp3 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        System.out.println("what's up ?");
         System.out.println("hello bitch");
     }
     

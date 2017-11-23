@@ -16,11 +16,11 @@ import java.util.logging.Logger;
  * @author Pierre
  */
 public class Ecriture {
-    BufferedWriter writer;
-    private String path;
+    
 
-    public Ecriture(String path,Image img) {
-        this.path = path;
+    public static void EcriturePGM(String path,Image img) {
+        BufferedWriter writer = null;
+ 
         try {
             writer = new BufferedWriter(new FileWriter(path));
         } catch (IOException ex) {
@@ -32,12 +32,14 @@ public class Ecriture {
             writer.newLine();
             writer.write("#");
             writer.newLine();
+            writer.write("255");
+            writer.newLine();
             writer.write(Integer.toString(img.getLargeur())+" "+ Integer.toString(img.getHauteur()));
             writer.newLine();
             for (int i=0;i<img.getHauteur();i++){
                 for(int j=0;j<img.getLargeur();j++){
                     writer.write(Integer.toString(img.getPixels().get(i).get(j)));
-                    writer.write(" ");
+                    writer.write("\t");
                 }
                 writer.newLine();
             }

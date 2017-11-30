@@ -5,6 +5,7 @@
  */
 package medev_tp3;
 
+import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -43,12 +44,31 @@ public class LectureTest {
     @Test
     public void testLecturePGM() {
         System.out.println("LecturePGM");
-        String source = "";
+        String source = "C:\\Users\\Pierre\\Desktop\\test.pgm";
         Image expResult = null;
         Image result = Lecture.LecturePGM(source);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        expResult= new Image(3,3);
+        
+        expResult.getPixels().add(new ArrayList<Integer>());
+        expResult.getPixels().add(new ArrayList<Integer>());
+        expResult.getPixels().add(new ArrayList<Integer>());
+        expResult.getPixels().get(0).add(0);
+        expResult.getPixels().get(0).add(1);
+        expResult.getPixels().get(0).add(0);
+        expResult.getPixels().get(1).add(1);
+        expResult.getPixels().get(1).add(0);
+        expResult.getPixels().get(1).add(1);
+        expResult.getPixels().get(2).add(0);
+        expResult.getPixels().get(2).add(1);
+        expResult.getPixels().get(2).add(0);
+        System.out.println(expResult.getPixels().toString());
+        System.out.println(expResult.toString());
+        System.out.println(result.toString());
+        Ecriture.EcriturePGM("C:\\Users\\Pierre\\Desktop\\test2.pgm",expResult);
+        
+        assertTrue(expResult.equals(result));
+        //assertEquals(expResult, result);
+      
     }
     
 }

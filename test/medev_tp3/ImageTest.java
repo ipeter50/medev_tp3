@@ -141,11 +141,28 @@ public class ImageTest {
         System.out.println("max");
         ArrayList<Integer> niveaux = null;
         Image instance = null;
-        int expResult = 0;
+        
+        
+        instance= new Image(3,3);
+        
+        instance.getPixels().add(new ArrayList<Integer>());
+        instance.getPixels().add(new ArrayList<Integer>());
+        instance.getPixels().add(new ArrayList<Integer>());
+        instance.getPixels().get(0).add(0);
+        instance.getPixels().get(0).add(1);
+        instance.getPixels().get(0).add(2);
+        instance.getPixels().get(1).add(3);
+        instance.getPixels().get(1).add(28);
+        instance.getPixels().get(1).add(5);
+        instance.getPixels().get(2).add(6);
+        instance.getPixels().get(2).add(7);
+        instance.getPixels().get(2).add(8);
+        
+        int expResult = 28;
         int result = instance.max(niveaux);
-        assertEquals(expResult, result);
+        assertTrue(result.equals(expResult));
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
     /**
@@ -154,26 +171,89 @@ public class ImageTest {
     @Test
     public void testSeuillage() {
         System.out.println("seuillage");
-        int seuil = 0;
+        int seuil = 4;
         Image instance = null;
+        
+        instance= new Image(3,3);
+        
+        instance.getPixels().add(new ArrayList<Integer>());
+        instance.getPixels().add(new ArrayList<Integer>());
+        instance.getPixels().add(new ArrayList<Integer>());
+        instance.getPixels().get(0).add(0);
+        instance.getPixels().get(0).add(1);
+        instance.getPixels().get(0).add(2);
+        instance.getPixels().get(1).add(3);
+        instance.getPixels().get(1).add(4);
+        instance.getPixels().get(1).add(5);
+        instance.getPixels().get(2).add(6);
+        instance.getPixels().get(2).add(7);
+        instance.getPixels().get(2).add(8);
+        
         instance.seuillage(seuil);
+        
+        Image expResult = null;
+        expResult= new Image(3,3);
+        
+        expResult.getPixels().add(new ArrayList<Integer>());
+        expResult.getPixels().add(new ArrayList<Integer>());
+        expResult.getPixels().add(new ArrayList<Integer>());
+        expResult.getPixels().get(0).add(0);
+        expResult.getPixels().get(0).add(0);
+        expResult.getPixels().get(0).add(0);
+        expResult.getPixels().get(1).add(0);
+        expResult.getPixels().get(1).add(255);
+        expResult.getPixels().get(1).add(255);
+        expResult.getPixels().get(2).add(255);
+        expResult.getPixels().get(2).add(255);
+        expResult.getPixels().get(2).add(255);
+        
+        System.out.println(expResult.toString());
+        System.out.println(instance.toString());
+    
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertTrue(expResult.equals(instance));
     }
 
     /**
      * Test of difference method, of class Image.
      */
     @Test
-    public void testDifference() {
-        System.out.println("difference");
-        Image img = null;
-        Image instance = null;
-        boolean expResult = false;
-        boolean result = instance.difference(img);
-        assertEquals(expResult, result);
+    public void testEquals() {
+        System.out.println("equals");
+        Image result = null;
+        Image expResult = null;
+        expResult= new Image(3,3);
+        
+        expResult.getPixels().add(new ArrayList<Integer>());
+        expResult.getPixels().add(new ArrayList<Integer>());
+        expResult.getPixels().add(new ArrayList<Integer>());
+        expResult.getPixels().get(0).add(0);
+        expResult.getPixels().get(0).add(1);
+        expResult.getPixels().get(0).add(0);
+        expResult.getPixels().get(1).add(1);
+        expResult.getPixels().get(1).add(0);
+        expResult.getPixels().get(1).add(1);
+        expResult.getPixels().get(2).add(0);
+        expResult.getPixels().get(2).add(1);
+        expResult.getPixels().get(2).add(0);
+        
+        result= new Image(3,3);
+        
+        result.getPixels().add(new ArrayList<Integer>());
+        result.getPixels().add(new ArrayList<Integer>());
+        result.getPixels().add(new ArrayList<Integer>());
+        result.getPixels().get(0).add(0);
+        result.getPixels().get(0).add(1);
+        result.getPixels().get(0).add(0);
+        result.getPixels().get(1).add(1);
+        result.getPixels().get(1).add(0);
+        result.getPixels().get(1).add(1);
+        result.getPixels().get(2).add(0);
+        result.getPixels().get(2).add(1);
+        result.getPixels().get(2).add(0);
+        
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertTrue(expResult.equals(result));
     }
     
 }

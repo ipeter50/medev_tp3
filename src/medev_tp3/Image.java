@@ -106,17 +106,28 @@ public class Image {
         }
 
     }
+    
+    
+    public String toString(){
+        String s;
+        s="Hauteur:"+Integer.toString(this.hauteur);
+        s=s+"\nLargeur:"+Integer.toString(this.largeur);
+        s=s+"\npixels:"+this.pixels.toString();
+        return s;
+    }
 
-    public boolean difference(Image img) {
+    public boolean equals(Image img) {
         boolean res = true;
         if (this.hauteur != img.hauteur) {
+            System.out.println("a");
             res = false;
         } else if (this.largeur != img.largeur) {
+            System.out.println("z");
             res = false;
         } else {
             for (int i = 0; i < this.hauteur; i++) {
                 for (int j = 0; j < this.largeur; j++) {
-                    if (this.pixels.get(i).get(j) != img.pixels.get(i).get(j)) {
+                    if (!img.getPixels().get(i).get(j).equals(this.pixels.get(i).get(j))) {
                         res = false;
                     }
                 }

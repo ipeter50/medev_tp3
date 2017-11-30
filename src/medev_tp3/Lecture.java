@@ -25,8 +25,8 @@ public class Lecture {
                 fichier.readLine();
                 line = fichier.readLine();
                 StringTokenizer t = new StringTokenizer(line, " ");
-                img.setHauteur(Integer.parseInt(t.nextToken()));
                 img.setLargeur(Integer.parseInt(t.nextToken()));
+                img.setHauteur(Integer.parseInt(t.nextToken()));
                 fichier.readLine();
                 line = fichier.readLine();
                 int i = 0;

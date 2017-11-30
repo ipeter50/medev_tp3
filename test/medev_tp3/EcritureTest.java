@@ -5,6 +5,7 @@
  */
 package medev_tp3;
 
+import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -43,11 +44,23 @@ public class EcritureTest {
     @Test
     public void testEcriturePGM() {
         System.out.println("EcriturePGM");
-        String path = "";
-        Image img = null;
-        Ecriture.EcriturePGM(path, img);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        String path = "C:\\Users\\Jules\\Desktop\\test.pgm";
+        // testLecturePGM();
+        Image img = Lecture.LecturePGM(path);
+        Ecriture.EcriturePGM("C:\\Users\\Jules\\Desktop\\test1.pgm", img);
+        Image real = new Image(2, 3);
+        real.getPixels().add(new ArrayList<Integer>());
+        real.getPixels().add(new ArrayList<Integer>());
+        real.getPixels().get(0).add(255);
+        real.getPixels().get(0).add(0);
+        real.getPixels().get(0).add(255);
+        real.getPixels().get(1).add(0);
+        real.getPixels().get(1).add(255);
+        real.getPixels().get(1).add(0);
+        Ecriture.EcriturePGM("C:\\Users\\Jules\\Desktop\\test2.pgm", real);
+        Image res1 = Lecture.LecturePGM("C:\\Users\\Jules\\Desktop\\test1.pgm");
+        Image res2 = Lecture.LecturePGM("C:\\Users\\Jules\\Desktop\\test2.pgm");
+        assertTrue(res1.equals(res2));
     }
     
 }
